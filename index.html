@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>严小六 - 个人简介</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title .icon {
+            font-size: 24px;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-list li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-list .icon {
+            font-size: 20px;
+        }
+
+        .contact-list a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #f0f0f5;
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .cert-list {
+            list-style: none;
+        }
+
+        .cert-list li {
+            padding: 10px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .cert-list li::before {
+            content: "🏆";
+            position: absolute;
+            left: 0;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-title {
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+
+        .exp-company {
+            color: #667eea;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .exp-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .project-item {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .volunteer-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .volunteer-item {
+            background: #fff3e0;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #e65100;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 600px) {
+            .header-card {
+                padding: 30px 20px;
+            }
+
+            .name {
+                font-size: 24px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Card -->
+        <div class="header-card">
+            <div class="avatar">👨‍💻</div>
+            <h1 class="name">严小六</h1>
+            <p class="tagline">INFJ · 27岁 · 少儿编程教育从业者</p>
+            <p style="color: #888; margin-bottom: 20px;">目前正在探索在线教育和知识付费场景</p>
+            <div class="badges">
+                <span class="badge">计算机科学</span>
+                <span class="badge">Web开发</span>
+                <span class="badge">Python</span>
+                <span class="badge">AI工具</span>
+            </div>
+        </div>
+
+        <div class="grid">
+            <!-- Contact Card -->
+            <div class="card">
+                <h2 class="card-title"><span class="icon">📞</span>联系方式</h2>
+                <ul class="contact-list">
+                    <li><span class="icon">💬</span> vxb****888</li>
+                    <li><span class="icon">✉️</span> <a href="mailto:gugetemp@gmail.com">gugetemp@gmail.com</a></li>
+                </ul>
+                <p style="margin-top: 15px; font-size: 13px; color: #888; line-height: 1.5;">
+                    💡 可通过邮件说明来意，获取更加便利的联系方式
+                </p>
+            </div>
+
+            <!-- Education Card -->
+            <div class="card">
+                <h2 class="card-title"><span class="icon">🎓</span>教育背景</h2>
+                <div class="experience-item">
+                    <div class="exp-title">计算机科学与技术</div>
+                    <div class="exp-company">郑州大学</div>
+                </div>
+            </div>
+
+            <!-- Skills Card -->
+            <div class="card">
+                <h2 class="card-title"><span class="icon">💡</span>专业技能</h2>
+                <div class="skill-list">
+                    <span class="skill-tag">计算机组成</span>
+                    <span class="skill-tag">网络管理</span>
+                    <span class="skill-tag">网页设计</span>
+                    <span class="skill-tag">Web开发</span>
+                    <span class="skill-tag">Python爬虫</span>
+                    <span class="skill-tag">视频剪辑</span>
+                    <span class="skill-tag">PS修图</span>
+                </div>
+            </div>
+
+            <!-- AI Tools Card -->
+            <div class="card">
+                <h2 class="card-title"><span class="icon">🤖</span>AI工具熟练度</h2>
+                <div class="skill-list">
+                    <span class="skill-tag">ChatGPT</span>
+                    <span class="skill-tag">DeepSeek</span>
+                    <span class="skill-tag">剪映</span>
+                    <span class="skill-tag">Photoshop</span>
+                </div>
+            </div>
+
+            <!-- Certificates Card -->
+            <div class="card">
+                <h2 class="card-title"><span class="icon">📜</span>证书资质</h2>
+                <ul class="cert-list">
+                    <li>计算机信息处理</li>
+                    <li>计算机网络组建</li>
+                    <li>全国普通话二级</li>
+                    <li>CodeCamp黑客松最佳项目奖</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="card" style="margin-bottom: 30px;">
+            <h2 class="card-title"><span class="icon">💼</span>工作经历</h2>
+
+            <div class="experience-item">
+                <div class="exp-title">少儿编程老师</div>
+                <div class="exp-company">某知名少儿编程教育机构</div>
+                <div class="exp-desc">
+                    <strong>工作内容：</strong>日常授课、教学设备管理、续费支持、口碑挖掘<br>
+                    <strong>工作成果：</strong>累计服务学员300+名，出勤率90%+，家长满意度95%+，完成5000+课时，获奖人次100+
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-title">平台运营支持</div>
+                <div class="exp-company">某在线教育平台</div>
+                <div class="exp-desc">
+                    <strong>工作内容：</strong>制定平台运营计划、协同多部门资源、优化平台功能、编制运营内容<br>
+                    <strong>工作成果：</strong>月活用户增长20%，用户留存率提升15%，新用户注册量月增30%，用户满意度提升至85%
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <!-- Projects Card -->
+            <div class="card">
+                <h2 class="card-title"><span class="icon">🚀</span>项目经历</h2>
+                <div class="project-list">
+                    <div class="project-item">CodeCamp黑客松<br>最佳项目奖</div>
+                    <div class="project-item">企业导航<br>网站</div>
+                    <div class="project-item">视频号<br>运营项目</div>
+                    <div class="project-item">教学资源<br>网站</div>
+                    <div class="project-item">聊天室<br>项目</div>
+                </div>
+            </div>
+
+            <!-- Volunteer Card -->
+            <div class="card">
+                <h2 class="card-title"><span class="icon">❤️</span>志愿服务</h2>
+                <div class="volunteer-list">
+                    <span class="volunteer-item">壹基金儿童安全教育</span>
+                    <span class="volunteer-item">郑州720洪水救灾</span>
+                    <span class="volunteer-item">金水抗疫志愿者</span>
+                    <span class="volunteer-item">红星救援队</span>
+                    <span class="volunteer-item">九九公益日宣传</span>
+                    <span class="volunteer-item">童年一课支教项目</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 严小六 · 用心做教育，用爱传递知识</p>
+        </div>
+    </div>
+</body>
+</html>
